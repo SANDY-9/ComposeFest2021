@@ -98,10 +98,17 @@ fun Greeting(name: String) {
                     text = "$name!",
                     color = Color.White,
                     fontWeight = FontWeight.Bold,
-                    textAlign = TextAlign.Center,
+                    //textAlign = TextAlign.Center,
                     modifier = Modifier.fillMaxWidth(),
                     style = MaterialTheme.typography.h5
                 )
+                if (expended.value) {
+                    Text(
+                        text = ("Composem ipsum color sit lazy, " +
+                                "padding theme elit, sed do bouncy. ").repeat(4),
+                        color = Color.White
+                    )
+                }
             }
 //            Button(
 //                onClick = { expended.value = !expended.value },
@@ -112,7 +119,7 @@ fun Greeting(name: String) {
 //            }
             IconButton(onClick = { expended.value = !expended.value }) {
                 Icon(
-                    imageVector = if (!expended.value) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
+                    imageVector = if (expended.value) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
                     contentDescription = if (!expended.value) {
                         stringResource(R.string.close)
                     } else {
