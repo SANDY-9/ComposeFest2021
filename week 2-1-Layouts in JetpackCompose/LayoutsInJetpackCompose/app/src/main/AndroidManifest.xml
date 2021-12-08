@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sandy.layoutsinjetpackcompose">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.LayoutsInJetpackCompose"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".IntrinsicsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_intrinsics"
+            android:theme="@style/Theme.LayoutsInJetpackCompose.NoActionBar" />
+        <activity
+            android:name=".ConstraintLayoutActivity"
+            android:exported="false"
+            android:label="@string/title_activity_constraint_layout"
+            android:theme="@style/Theme.LayoutsInJetpackCompose.NoActionBar" />
+        <activity
+            android:name=".ComplexCustomLayoutActivity"
+            android:exported="false"
+            android:label="@string/title_activity_complex_custom_layout"
+            android:theme="@style/Theme.LayoutsInJetpackCompose.AppBarOverlay" />
+        <activity
+            android:name=".CustomLayoutActivity"
+            android:exported="false"
+            android:label="@string/title_activity_custom_layout"
+            android:theme="@style/Theme.LayoutsInJetpackCompose.NoActionBar" />
+        <activity
+            android:name=".ScaffoldActivity"
+            android:exported="false"
+            android:label="@string/title_activity_scaffold"
+            android:theme="@style/Theme.LayoutsInJetpackCompose.NoActionBar" />
+        <activity
+            android:name=".ModifierActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.LayoutsInJetpackCompose.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ListsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_scaffold"
+            android:theme="@style/Theme.LayoutsInJetpackCompose.NoActionBar" />
+    </application>
+
+</manifest>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LayoutsInJetpackCompose</string>
+    <string name="title_activity_scaffold">ScaffoldActivity</string>
+    <string name="title_activity_custom_layout">CustomLayoutActivity</string>
+    <string name="title_activity_complex_custom_layout">ComplexCustomLayoutActivity</string>
+    <string name="title_activity_constraint_layout">ConstraintLayoutActivity</string>
+    <string name="title_activity_intrinsics">IntrinsicsActivity</string>
+</resources>
