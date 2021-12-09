@@ -87,6 +87,7 @@ class TopAppBarTest {
             .assertExists()
     }
 
+    // Optional exercise
     @Test
     fun rallyTopAppBarTest_selectedChange() {
         // 테스트 설정
