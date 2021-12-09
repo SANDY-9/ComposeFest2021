@@ -92,6 +92,7 @@ dependencies {
     implementation "androidx.compose.runtime:runtime-livedata:$rootProject.composeVersion"
     implementation "androidx.compose.ui:ui-tooling:$rootProject.composeVersion"
 
+    // MDC Compose 테마 어댑터 라이브러리를 통해 기존 뷰 기반 테마의 색상, 글꼴 및 모양 테마를 컴포저블에 쉽게 재사용할 수 있음 -> MdcTheme
     implementation "com.google.android.material:compose-theme-adapter:$rootProject.materialComposeAdapterVersion"
 
     // Testing dependencies
@@ -105,4 +106,6 @@ dependencies {
     androidTestImplementation "com.google.truth:truth:$rootProject.truthVersion"
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$rootProject.composeVersion"
     testImplementation "junit:junit:$rootProject.junitVersion"
+
+
 }

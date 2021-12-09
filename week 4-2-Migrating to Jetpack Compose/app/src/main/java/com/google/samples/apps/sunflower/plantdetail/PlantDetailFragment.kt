@@ -21,6 +21,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.app.ShareCompat
 import androidx.core.widget.NestedScrollView
@@ -29,6 +34,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.composethemeadapter.MdcTheme
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.samples.apps.sunflower.R
@@ -106,6 +112,7 @@ class PlantDetailFragment : Fragment() {
                     else -> false
                 }
             }
+            setupComposeView(composeView)
         }
         setHasOptionsMenu(true)
 
@@ -145,4 +152,31 @@ class PlantDetailFragment : Fragment() {
     interface Callback {
         fun add(plant: Plant?)
     }
+
+    private fun setupComposeView(composeView: ComposeView) {
+        composeView.apply {
+            /* ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed
+                1) View의 LifecycleOwner가 destroy될 때 compose도 destroy
+                2) 프래그먼트에서 ComposeView를 사용할 때는 항상 이 strategy를 설정해야함
+                3) AbstractComposeView.disposeComposition : 수동적으로 컴포지션뷰 삭제
+             */
+            // compose는 ComposeView가 윈도우에서 분리될 때마다 컴포지션을 삭제하기 때문에 프래그먼트의 lifecycle과 차이가 생김
+            setViewCompositionStrategy(
+                ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed
+            )
+            setContent {
+                // MdcTheme : 기존 뷰 기반 테마의 색상, 글꼴 및 모양 테마를 컴포저블이 사용할 수 있게함
+                MdcTheme {
+                    PlantDetailDescription(
+                        plantDetailViewModel = plantDetailViewModel
+                    )
+                }
+            }
+        }
+    }
+
+//    @Composable
+//    private fun PlantDetailDescription() {
+//        Text("Hello Compose")
+//    }
 }
