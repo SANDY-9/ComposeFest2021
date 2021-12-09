@@ -1,0 +1,47 @@
+<컴포즈 마이그레이션>
+1. 새로운 화면에 컴포즈
+2. 기존의 뷰와 컴포즈 같이 사용
+3. 완전히 마이그레이션 : 전체 프레그먼트 또는 화면을 하나씩 컴포즈로 마이그레이션
+---------------------
+<Compose 사용 설정>
+
+android {
+    ...
+    kotlinOptions {
+        jvmTarget = '1.8'
+        useIR = true
+    }
+    buildFeatures {
+        ...
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion rootProject.composeVersion
+    }
+}
+
+dependencies {
+    ...
+    // Compose
+    implementation "androidx.compose.runtime:runtime:$rootProject.composeVersion"
+    implementation "androidx.compose.ui:ui:$rootProject.composeVersion"
+    implementation "androidx.compose.foundation:foundation:$rootProject.composeVersion"
+    implementation "androidx.compose.foundation:foundation-layout:$rootProject.composeVersion"
+    implementation "androidx.compose.material:material:$rootProject.composeVersion"
+    implementation "androidx.compose.runtime:runtime-livedata:$rootProject.composeVersion"
+    implementation "androidx.compose.ui:ui-tooling:$rootProject.composeVersion"
+    implementation "com.google.android.material:compose-theme-adapter:$rootProject.composeVersion"
+    ...
+}
+
+
+<Compose migration plan1 - child view(part view) migration>
+1. Removing XML code : ComposeView추가
+<androidx.compose.ui.platform.ComposeView
+        android:id="@+id/compose_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+2. Adding Compose code
+1) composeView.setContent {  } 추가하기
+2) @Composable 함수 프래그먼트 내부에 만들기
